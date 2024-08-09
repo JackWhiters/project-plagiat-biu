@@ -1,0 +1,33 @@
+
+Dalam dunia industri keuangan baik perbankan maupun yang lainnya yang terus meningkat dikarenakan lemahnya pemahaman akan tindakan fraud yang semakin beragam jenisnya. Semua lembaga keuangan baik dalam perbankan dan non perbankan yang termasuk juga perusahaan yang bergerak di bidang asuransi selain membuat tim anti-fraud, lembaga-lembaga tersebut juga harus membuat suatu sistem yang dapat mengendalikan serta mengurangi kejadian fraud secara signifikan sesuai dengan yang sudah ditetapkan oleh OJK selaku regulator. 
+Salah satu kejahatan dalam perbankan yaitu kejahatan dengan modus SIM swap dengan mengambil alih nomor ponsel korban untuk dijadikan sarana dalam mengakses semua akun perbankan korban. Pelaku kejahatan tersebut biasanya sudah mengetahui rekam jejak transaksi perbankan calon korbannya seperti dengan meretas akun media sosial melalui email phising atau dilakukan dengan menelepon korban secara langsung, lalu meminta pergantian kartu SIM kepada operator telepon berdasarkan data yang telah didapat. Menindak lanjuti masalah pelaporan dalam tim anti-fraud mengenai kejahatan SIM swap ini teknologi informasi sangat berperan penting dalam suatu pengelolaan sistem informasi. Sementara ini pelaporan jumlah kasus SIM swap dalam tim departement anti-fraud pada departement anti-fraud sendiri masih dilakukan pertukaran informasi melalui media whatsapp setiap minggunya.
+Dengan adanya kondisi tersebut dinilai kurang optimal dalam memantau informasi dan pelaporan pada departemen anti-fraud maka dirancanglah sebuah sistem informasi untuk monitoring kasus SIM swap dalam department anti-fraud. 
+Berdasarkan masalah tersebut maka akan dirancang dan dibangun sebuah sistem informasi monitoring kinerja bisnis pada sektor internal menggunakan motode performance dashboard yang dapat memonitoring kinerja bisnis perusahaan dan mempermudah user dalam melakukan pencarian laporan kinerja bisnis, yang diharapkan dapat mengurangi permasalahan yang ada (Anne Nursyifa dan Sari Armiati, 2020).
+
+Dashboard nantinya akan dibuat menggunakan Metode pengembangan perangkat lunak RAD (Rapid Application Development) yang akan memberikan tampilan antar muka dengan berbentuk macam indikator yang dilengkapi dengan diagram lalu akan dipadukan dengan informasi yang dinamis dan relevan. Dengan dibuatnya dashboard ini maka departement anti-fraud dapat melihat informasi secara detail dan menyajikan data lebih aman mengenai kasus SIM swap.
+
+Dari uraian latar belakang masalah di atas maka didapatkan identifikasi masalah sebagai berikut :
+Belum terdapatnya sistem untuk memonitoring fraud pada kejahatan SIM swap dalam departement anti-fraud pada Divisi Information Security
+Data kasus SIM swap masih dikomunikasikan antar tim dalam departement anti-fraud melalui media whatsapp setiap minggu nya.
+Belum adanya laporan kasus SIM swap secara visualisasi.
+
+Adapun batasan masalah dari laporan ini sebagai berikut :
+Sistem ini dibuat hanya untuk menampilkan laporan monitoring kasus SIM swap.
+User dalam sistem ini terdiri atas departement anti-fraud yang berisi admin dan manger dalam department anti-fraud.
+System digunakan untuk menganalisa kasus SIM swap untuk ditindak lanjuti pihak yang berwenang.
+Menggunakan metode pengembangan perangkat lunak RAD (Rapid Application Developement).
+
+Adapun perumusan masalah dibuatnya laporan ini sebagai berikut :
+Bagaimana perancangan sistem monitoring kasus SIM swap ?
+Bagaimana mengetahui data kasus SIM swap yang sudah terjadi?
+Bagaimana mempermudah user dalam melihat laporan kasus SIM swap ?
+
+Berikut tujuan yang dapat di harapkan dari penelitian ini :
+Agar lebih mudah dalam melakukan pemantauan kasus SIM swap
+Terdapatnya dashboard untuk memonitoring laporan dari kejahatan SIM swap
+Semua user dalam department anti-fraud dapat memantau kejahatan SIM swap pada PT.Bank Rakyat Indonesia, Tbk.
+
+Adapun manfaat yang dapat diperoleh yaitu :
+Setiap tim lebih mudah mendapat data laporan mengenai kejahatan SIM swap.
+Terdapat data secara visualisasi sehingga mempermudah setiap tim untuk melakukan analisa.
+Dapat melihat jumlah kasus yang di kelompokan sesuai provider dan waktu.

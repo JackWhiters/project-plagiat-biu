@@ -1,0 +1,33 @@
+
+Perkembangan di bidang teknologi informasi khususnya teknologi internet mempermudah dan membantu berbagai bidang pekerjaan yang terkait dengan kemudahan akses, jarak dan waktu. Penyebaran informasi yang dahulu cenderung dilakukan secara manual dan relatif lambat, saat ini dapat dilakukan dengan lebih cepat serta efisien. Hal ini mempengaruhi banyak aspek dalam kehidupan, tak terkecuali perusahaan  perusahaan dan instansi, dalam menjalankan proses bisnisnya. Dampak dari pesatnya perkembangan teknologi informasi membawa pengaruh ke segala bidang, salah satunya dalam bidang jasa pembangunan atau kontraktor
+Salah satu contoh System Monitoring yang dibuat yaitu untuk Pemasangan Sistem SPBU di PT. Patra Niaga. Kegunaan pemasangan sistem spbu untuk lebih memudahkan dalam melakukan Collect Data (rekap data) dari SBM (Sales Branch Manager) untuk pemasangan sistem spbu  tiap wilayah. Lalu data yang sudah masuk untuk melakukan pemasangan bisa langsung dapat konfirmasi jadwal pemasangan Sistem SPBU baik untuk pemasangan awal atau hanya Reminder (SPBU dapat melakukan pemasangan dengan sendiri atau dibantu on site oleh tim Telkom) agar tidak terjadinya keterlambatan pengumpulan data SPBU yang akan melakukan setting kemudian data setting lebih akurat dan dengan pembuatan Monitoring Sistem SPBU ini tidak terjadi redudansi data.. 
+Berdasarkan latar belakang permasalahan diatas, diperlukan adanya suatu sistem informasi monitoring proyek yang mampu untuk membantu dan mempermudah perusahaan ini dalam memantau setiap pelaksanaan pekerjaan serta dapat memberikan informasi ± informasi proyek yang dibutuhkan secara cepat, dan sistem informasi database yang terintegrasi dan mudah diakses dapat dikembangkan untuk menyimpan semua informasi dokumentasi proyek yang diperlukan oleh manajer proyek dan pihak yang terkait. (Megawati, 2018)
+Dengan merancang monitoring sistem  spbu diharapkan menjadi solusi yang tepat yang dapat membantu proses pemasangan sistem di PT. Pertamina Patra Niaga. Langkah-langkah penelitian untuk membangun sistem menggunakan metode WATERFALL Model ini metode yang digunakan untuk menjelaskan hasil peneltian menggunakan teknik atau metode deskriptif.
+Oleh karena itu, untuk menindaklanjuti permasalahan dengan latar belakang yang sudah dijelaskan diatas dimana untuk Collect data (rekap data) pada SBM untuk pemasangan Sistem SPBU tiap wilayah dengan ini kami akan melakukan penelitian dengan judul “Analis  Sistem Informasi Monitoring Pemasangan Sistem SPBU PT. Pertamina Patra Niaga.”
+
+
+Berikut merupakan permasalahan yang sudah di dapatkan untuk di Analisa :
+Terjadinya keterlambatan pengumpulan data SPBU yang akan disetting.
+Adanya ketidak akuratan data setting SPBU.
+Laporan Penyettingan Sistem SPBU berupa Excel namun user lebih dari satu sehingga bisa menyebabkan redudansi data.
+
+Berikut merupakan batasan masalah yang sudah di dapatkan untuk di Analisa :
+Sistem ini dibuat untuk monitoring data untuk pemasangan atau setting SPBU.
+User yang ada dalam sistem  monitoring yaitu hanya SBM  (Sales Branch Manager) dan admin
+Sistem ini digunakan untuk menganalisa data agar lebih akurat.
+
+
+Berikut merupakan Perumusan Masalah yang sudah didapatkan untuk di Analisa :
+Bagaimana agar tidak terjadinya keterlambatan dalam pengumpulan data SPBU?
+Kenapa dibuat Sistem Monitoring Pemasangan Sistem SPBU?
+Bagaimana user menggunakan sistem tersebut?
+
+
+Berikut merupakan tujuan dari penelitian ini yaitu:
+Membuat suatu perancangan  Monitoring Sistem untuk membantu proses pemasangan Sistem SPBU dalam Collect Data.
+Memanfaatkan adanya teknologi Sistem Informasi sebagai alat pendukunng aktivitas perusahaan untuk mencapai keberhasilan dalam merealisasikan sistem pada SPBU.
+Menerapkan ilmu dan pengetahuan yang sudah diperoleh selama masa perkuliahan dengan membuat suatu Monitoring Pemasangan Sistem SPBU yang dapat di implementasikan di PT. Pertamina Patra Niaga. 
+
+Berikut merupakan Manfaat dari penelitian ini yaitu:
+Mampu menerapkan sistem teknologi informasi yang lebih efisien dan efektif bagi pengguna atau user.
+Meberikan kemudahan bagi user dalam collect data pada setiap wilayah agar cepat terlaksananya pemasangan sistem.
