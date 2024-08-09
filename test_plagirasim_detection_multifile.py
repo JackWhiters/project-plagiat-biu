@@ -122,56 +122,79 @@ def get_sbert_embeddings(texts):
 # LSA Model
 def get_lsa_embeddings(texts):
     """
-    Get LSA embeddings using TF-IDF and TruncatedSVD.
+    Mendapatkan embedding LSA menggunakan TF-IDF dan TruncatedSVD.
     """
     indonesian_stopwords_path = 'indonesian_stopwords.txt'
 
+    # Memeriksa apakah file stopwords bahasa Indonesia ada di direktori yang ditentukan
     if os.path.exists(indonesian_stopwords_path):
+        # Jika file ada, baca kontennya dan masukkan kata-kata ke dalam set stop_words_indonesian
         with open(indonesian_stopwords_path, 'r', encoding='utf-8') as f:
             stop_words_indonesian = set([word.strip() for word in f.readlines()])
+        # Mencatat jumlah kata yang berhasil dimuat sebagai stopwords
         logging.info(f"Indonesian stopwords loaded: {len(stop_words_indonesian)} words")
     else:
+        # Jika file tidak ditemukan, naikkan error FileNotFoundError
         raise FileNotFoundError("Indonesian stopwords file not found!")
 
+    # Memeriksa apakah model vectorizer dan SVD sudah ada (sudah pernah disimpan)
     if os.path.exists(VECTORIZER_PATH) and os.path.exists(SVD_PATH):
+        # Jika sudah ada, memuat model vectorizer dan SVD yang tersimpan dari file
         vectorizer = joblib.load(VECTORIZER_PATH)
         svd = joblib.load(SVD_PATH)
     else:
+        # Jika belum ada, buat model TfidfVectorizer baru dengan pengaturan tertentu
         vectorizer = TfidfVectorizer(
-            stop_words=list(stop_words_indonesian),
-            max_df=0.95,
-            min_df=2,
-            ngram_range=(1, 3),
-            sublinear_tf=True,
-            max_features=100000
+            stop_words=list(stop_words_indonesian),  # Menggunakan stopwords bahasa Indonesia yang sudah dimuat
+            max_df=0.95,  # Mengabaikan kata yang muncul di lebih dari 95% dokumen
+            min_df=2,  # Hanya memasukkan kata yang muncul di setidaknya 2 dokumen
+            ngram_range=(1, 3),  # Menggunakan unigram, bigram, dan trigram
+            sublinear_tf=True,  # Menggunakan scaling TF untuk mengurangi pengaruh kata yang sering muncul
+            max_features=100000  # Menggunakan maksimal 100.000 fitur (kata)
         )
+        # Melatih vectorizer pada teks dan mengubahnya menjadi matriks TF-IDF
         X_tfidf = vectorizer.fit_transform(texts)
 
+        # Mencatat ukuran (dimensi) dari matriks TF-IDF yang dihasilkan
         logging.info(f"TF-IDF shape: {X_tfidf.shape}")
 
+        # Membuat model TruncatedSVD baru dengan komponen LSA yang ditentukan
         svd = TruncatedSVD(n_components=LSA_COMPONENTS, algorithm='randomized', random_state=42)
+        # Menerapkan SVD pada matriks TF-IDF untuk mendapatkan embedding LSA
         X_lsa = svd.fit_transform(X_tfidf)
 
+        # Mencatat ukuran dari matriks LSA yang dihasilkan
         logging.info(f"LSA shape: {X_lsa.shape}")
 
+        # Menyimpan model vectorizer dan SVD ke file agar dapat digunakan lagi nanti
         joblib.dump(vectorizer, VECTORIZER_PATH)
         joblib.dump(svd, SVD_PATH)
 
+    # Mengubah teks menjadi matriks TF-IDF menggunakan vectorizer yang sudah dilatih
     X_tfidf = vectorizer.transform(texts)
+    # Mencatat ukuran dari matriks TF-IDF yang diperbarui
     logging.info(f"Updated TF-IDF shape: {X_tfidf.shape}")
+    # Menerapkan model SVD pada TF-IDF yang baru untuk mendapatkan embedding LSA yang diperbarui
     X_lsa = svd.transform(X_tfidf)
+    # Mencatat ukuran dari matriks LSA yang diperbarui
     logging.info(f"Updated LSA shape: {X_lsa.shape}")
 
+    # Memeriksa apakah hasil dari LSA memiliki cukup baris untuk perbandingan (minimal 2)
     if X_lsa.shape[0] < 2:
         raise ValueError("LSA output does not have enough rows for the comparison!")
 
+    # Melakukan dekomposisi SVD pada matriks LSA untuk mendapatkan komponen U, S, dan Vt
     U, S, Vt = np.linalg.svd(X_lsa, full_matrices=False)
+    # Mencatat ukuran dari masing-masing komponen SVD
     logging.info(f"SVD Shapes: U: {U.shape}, S: {S.shape}, Vt: {Vt.shape}")
 
+    # Memeriksa apakah LSA memiliki cukup komponen (minimal 2)
     if X_lsa.shape[1] < 2:
         raise ValueError("LSA matrix does not have enough components!")
 
+    # Mengembalikan hasil embedding LSA serta komponen SVD (U, S, Vt)
     return X_lsa, svd, U, S, Vt
+
 
 # Doc2Vec Model
 def get_doc2vec_embeddings(texts):
