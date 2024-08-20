@@ -199,33 +199,42 @@ def get_lsa_embeddings(texts):
 # Doc2Vec Model
 def get_doc2vec_embeddings(texts):
     """
-    Get Doc2Vec embeddings for a list of texts.
+    Mendapatkan embedding Doc2Vec untuk daftar teks.
     """
+    # Periksa apakah model Doc2Vec yang sudah dilatih ada di jalur yang ditentukan
     if os.path.exists(DOC2VEC_MODEL_PATH):
+        # Muat model yang sudah ada jika tersedia
         model = Doc2Vec.load(DOC2VEC_MODEL_PATH)
-        logging.info(f"Loaded existing Doc2Vec model from {DOC2VEC_MODEL_PATH}")
+        logging.info(f"Model Doc2Vec yang ada telah dimuat dari {DOC2VEC_MODEL_PATH}")
     else:
+        # Jika model tidak ada, persiapkan untuk melatih model baru
+        # Buat objek TaggedDocument untuk setiap teks, yang diperlukan untuk pelatihan
         tagged_docs = [TaggedDocument(words=preprocess_text(text).split(), tags=[str(i)]) for i, text in enumerate(texts)]
-        logging.info(f"Preparing to train a new Doc2Vec model with {len(texts)} documents")
+        logging.info(f"Persiapan untuk melatih model Doc2Vec baru dengan {len(texts)} dokumen")
 
+        # Inisialisasi model Doc2Vec baru dengan parameter yang ditentukan
         model = Doc2Vec(vector_size=VECTOR_SIZE, min_count=MIN_COUNT, epochs=EPOCHS, window=WINDOW, dm=DM, workers=4, alpha=ALPHA, min_alpha=MIN_ALPHA)
-        model.build_vocab(tagged_docs)
-        logging.info(f"Building vocabulary with {len(model.wv)} words")
+        model.build_vocab(tagged_docs)  # Bangun kosakata dari dokumen yang telah ditandai
+        logging.info(f"Membangun kosakata dengan {len(model.wv)} kata")
 
+        # Latih model selama sejumlah epoch yang ditentukan
         for epoch in range(EPOCHS):
-            model.train(tagged_docs, total_examples=model.corpus_count, epochs=1)
-            model.alpha -= (ALPHA - MIN_ALPHA) / EPOCHS
-            model.min_alpha = model.alpha
-        logging.info(f"Training complete with {EPOCHS} epochs")
+            model.train(tagged_docs, total_examples=model.corpus_count, epochs=1)  # Latih model pada satu epoch
+            model.alpha -= (ALPHA - MIN_ALPHA) / EPOCHS  # Sesuaikan alpha
+            model.min_alpha = model.alpha  # Perbarui min_alpha
+        logging.info(f"Pelatihan selesai dengan {EPOCHS} epoch")
 
+        # Simpan model yang telah dilatih ke jalur yang ditentukan
         model.save(DOC2VEC_MODEL_PATH)
-        logging.info(f"Saved the Doc2Vec model to {DOC2VEC_MODEL_PATH}")
+        logging.info(f"Model Doc2Vec telah disimpan ke {DOC2VEC_MODEL_PATH}")
 
+    # Dapatkan embedding untuk setiap teks dengan menggunakan model yang ada
     embeddings = [model.infer_vector(preprocess_text(text).split(), epochs=EPOCHS) for text in texts]
-    embeddings = np.array(embeddings)
+    embeddings = np.array(embeddings)  # Ubah embeddings menjadi array NumPy
 
+    # Periksa apakah embeddings memiliki cukup baris untuk perbandingan
     if embeddings.shape[0] < 2:
-        raise ValueError("Doc2Vec embeddings do not have enough rows for the comparison!")
+        raise ValueError("Embedding Doc2Vec tidak memiliki cukup baris untuk perbandingan!")
 
     return embeddings
 
